@@ -3,9 +3,25 @@
 <head>
 	<title>Study Materials</title>
 	<link rel='icon' href='https://raw.githubusercontent.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/master/favicon.ico' />
+	
+	<style type="text/css">
+		body {
+			background-color: #D6FFF0
+		}
+	</style>
+
+	<script type="text/javascript">
+		
+		setInterval(function () {
+			let heading = document.getElementById('heading');
+			let color = Math.floor(Math.random() * 16777215).toString(16);
+			heading.style.color = '#' + color;
+		}, 100);
+
+	</script>
 </head>
 <body>
-	<h3>Here's a set of study materials used</h3>
+	<h3 id='heading'>Here's a set of study materials used</h3>
 
 	<hr />
 
