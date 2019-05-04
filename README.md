@@ -5,7 +5,7 @@
      width="40%"
      align="right"/>
 
-# Customer GitHub page
+# Personal GitHub page
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8026103669a943a8af96fd565a3250e7)](https://www.codacy.com/app/Vignesh-Durairaj/Vignesh-Durairaj.github.io?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Vignesh-Durairaj/Vignesh-Durairaj.github.io&amp;utm_campaign=Badge_Grade)
 
