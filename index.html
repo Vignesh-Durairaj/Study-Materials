@@ -8,6 +8,24 @@
 		body {
 			background-color: #D6FFF0
 		}
+
+		hr.fancy {
+			height: 10px;
+			border: 1;
+			box-shadow: inset 0 9px 9px -3px rgba(11, 99, 184, 0.8);
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			-ms-border-radius: 5px;
+			-o-border-radius: 5px;
+			border-radius: 5px;
+		}
+
+		tr.selector {
+			border-color: black; 
+			border-style: solid;
+
+		}
+
 	</style>
 
 	<script type="text/javascript">
@@ -18,13 +36,43 @@
 			heading.style.color = '#' + color;
 		}, 100);
 
+		function changeBgColor(ele) {
+			let eleCol = ele.style.backgroundColor;
+			document.body.style.backgroundColor = eleCol;
+		}
+
 	</script>
 </head>
 <body>
-	<h1 id='heading'>Here's a set of study materials used</h1>
+	<table width="100%" >
+		<thead>
+			<tr>
+				<td width="70%">
+					<h1 id='heading'>Here's a set of study materials used</h1>
+				</td>
+				<td width="10%"></td>
+				<td align="center">
+					<span style="font-family: Tahoma; font-size: large; ">Change Back-Ground</span> 
+					<br />
+					<table width="100%" cellspacing="10px;">
+						<th>
+							<tr>
+								<td width="20%" style="background-color: #F7CD91; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "><br /></td>
+								<td width="20%" style="background-color: #D6FFF0; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
+								<td width="20%" style="background-color: #FFFFFF; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
+								<td width="20%" style="background-color: #86EF86; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
+								<td width="20%" style="background-color: #F2F484; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
+							</tr>
+						</th>
+					</table>
+				</td>
+			</tr>
+		</thead>
+	</table>
+	<hr class="fancy"/>
 	<b>
 		Expand individual sections for download links
-		<hr />
+		<br /><hr />
 	</b>
 	<details>
 		<summary>In Action - Book Series</summary>
