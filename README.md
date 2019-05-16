@@ -1,8 +1,8 @@
 <img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png"	
      alt="Github Logo"	
      style="float: right; margin-left: 10px;" 	
-     height="40%"	
-     width="40%"	
+     height="35%"	
+     width="35%"	
      align="right"/>
 
 # Personal GitHub page
