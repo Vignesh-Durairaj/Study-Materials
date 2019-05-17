@@ -30,6 +30,12 @@
 
 	<script type="text/javascript">
 		
+		const urlPrefix = 'https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/';
+
+		window.onload = function() {
+			loadHyperLinks();
+		}
+
 		setInterval(function () {
 			let heading = document.getElementById('heading');
 			let color = Math.floor(Math.random() * 16777215).toString(16);
@@ -39,6 +45,49 @@
 		function changeBgColor(ele) {
 			let eleCol = ele.style.backgroundColor;
 			document.body.style.backgroundColor = eleCol;
+		}
+
+		function loadHyperLinks(){
+			
+			let listItems = document.getElementsByTagName('li');
+			console.log(getURLs(listItems[0]));
+			createHyperLink(listItems[0]);
+			for (listItem of listItems) {
+				
+			}
+		}
+
+		function createHyperLink(listItem) {
+			let a = document.createElement('a');
+			a.href = getURLs(listItem);
+			a.download = true;
+			a.textContent = listItem.getAttribute('value').split('|')[1];
+			listItem.appendChild(a);
+		}
+
+		function getURLs(listItem) {
+			let names = listItem.getAttribute('value').split('|');
+			let folderName = getFolderName(names[0]);
+			let fileName = getFileName(names[1]);
+
+			return urlPrefix + folderName + '/' + fileName + '.pdf';
+		}
+
+		function getFolderName(sourceName) {
+			let folderName = 'Others';
+			if (sourceName === 'IA') {
+				folderName = 'In%20Action%20Series';
+			} else if (sourceName === 'OR') {
+				folderName = "O'Reilly%20Series";
+			}
+
+			return folderName;
+		}
+
+		function getFileName(sourceName) {
+			return sourceName
+					.replace(/ /g, '%20')
+					.replace(/,/g,'%2C');
 		}
 
 	</script>
@@ -77,6 +126,7 @@
 	<details>
 		<summary>In Action - Book Series</summary>
 		<ul>
+			<li value='OR|Java Cookbook, 3rd Edition' />
 			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/ActiveMQ%20in%20Action.pdf" download>ActiveMQ in Action</a></li>
 			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Android%20in%20Action%2C%203rd%20Edition.pdf" download>Android in Action, 3rd Edition</a></li>
 			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Ant%20in%20Action%20-%202nd%20Edition.pdf" download>Ant in Action - 2nd Edition</a></li>
