@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Study Materials</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel='icon' href='https://raw.githubusercontent.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/master/favicon.ico' />
 	
 	<style type="text/css">
@@ -20,16 +21,24 @@
 			border-radius: 5px;
 		}
 
-		tr.selector {
+		td.selector {
 			border-color: black; 
-			border-style: solid;
+			border-radius: 10px; 
+			border-style: solid; 
+			border-width: thin;
+			width: 20%;
 
 		}
-
 	</style>
 
 	<script type="text/javascript">
 		
+		const urlPrefix = 'https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/';
+
+		window.onload = function() {
+			loadHyperLinks();
+		}
+
 		setInterval(function () {
 			let heading = document.getElementById('heading');
 			let color = Math.floor(Math.random() * 16777215).toString(16);
@@ -41,103 +50,154 @@
 			document.body.style.backgroundColor = eleCol;
 		}
 
+		function loadHyperLinks(){
+			
+			let listItems = document.getElementsByClassName('bookItem');
+			for (listItem of listItems) {
+				createHyperLink(listItem);
+			}
+		}
+
+		function createHyperLink(listItem) {
+			let a = document.createElement('a');
+			a.href = getURLs(listItem);
+			a.download = true;
+			a.textContent = listItem.getAttribute('value').split('|')[1];
+
+			listItem.appendChild(a);
+			listItem.removeAttribute('value');
+		}
+
+		function getURLs(listItem) {
+			let names = listItem.getAttribute('value').split('|');
+			let folderName = getFolderName(names[0]);
+			let fileName = getFileName(names[1]);
+
+			return urlPrefix + folderName + '/' + fileName + '.pdf';
+		}
+
+		function getFolderName(sourceName) {
+			let folderName = 'Others';
+			if (sourceName === 'IA') {
+				folderName = 'In%20Action%20Series';
+			} else if (sourceName === 'OR') {
+				folderName = "O'Reilly%20Series";
+			}
+
+			return folderName;
+		}
+
+		function getFileName(sourceName) {
+			return sourceName
+					.replace(/ /g, '%20')
+					.replace(/,/g,'%2C');
+		}
+
 	</script>
 </head>
 <body>
-	<table width="100%" >
-		<thead>
-			<tr>
-				<td width="70%">
-					<h1 id='heading'>Here's a set of study materials used</h1>
-				</td>
-				<td width="10%"></td>
-				<td align="center">
-					<span style="font-family: Tahoma; font-size: large; ">Change Back-Ground</span> 
-					<br />
-					<table width="100%" cellspacing="10px;">
-						<th>
-							<tr>
-								<td width="20%" style="background-color: #F7CD91; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "><br /></td>
-								<td width="20%" style="background-color: #D6FFF0; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
-								<td width="20%" style="background-color: #FFFFFF; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
-								<td width="20%" style="background-color: #B7F4A8; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
-								<td width="20%" style="background-color: #FDFF99; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
-							</tr>
-						</th>
-					</table>
-				</td>
-			</tr>
-		</thead>
-	</table>
+	<header>
+		<table width="100%" >
+			<thead>
+				<tr>
+					<td width="10%">
+						<img src='books.svg' alt='Study Materials' />
+					</td>
+					<td width="70%">
+						<h1 id='heading'>It's time to Study and Re-Skill yourself</h1>
+					</td>
+					<td align="center">
+						<span style="font-family: Tahoma; font-size: medium; ">Change Back-Ground</span> 
+						<br />
+						<table width="100%" cellspacing="10px;">
+							<th>
+								<tr>
+									<td class='selector' style="background-color: #F7CD91;" onclick="javascript: changeBgColor(this); "><br /></td>
+									<td class='selector' style="background-color: #D6FFF0;" onclick="javascript: changeBgColor(this); "></td>
+									<td class='selector' style="background-color: #FFFFFF;" onclick="javascript: changeBgColor(this); "></td>
+									<td class='selector' style="background-color: #B7F4A8;" onclick="javascript: changeBgColor(this); "></td>
+									<td class='selector' style="background-color: #FDFF99;" onclick="javascript: changeBgColor(this); "></td>
+								</tr>
+							</th>
+						</table>
+					</td>
+				</tr>
+			</thead>
+		</table>
+	</header>
 	<hr class="fancy"/>
+	<br />
 	<b>
-		Expand individual sections for download links
+		Below are a set of study materials used. Expand individual sections for download links
 		<br /><hr />
 	</b>
 	<details>
 		<summary>In Action - Book Series</summary>
 		<ul>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/ActiveMQ%20in%20Action.pdf" download>ActiveMQ in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Android%20in%20Action%2C%203rd%20Edition.pdf" download>Android in Action, 3rd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Ant%20in%20Action%20-%202nd%20Edition.pdf" download>Ant in Action - 2nd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/EJB%203%20in%20Action%20-%202nd%20Edition.pdf" download>EJB 3 in Action - 2nd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Ext%20JS%20in%20Action%20-%202nd%20Edition.pdf" download>Ext JS in Action - 2nd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/HTML5%20in%20Action.pdf" download>HTML5 in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Java%208%20in%20Action.pdf" download>Java 8 in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/JavaServer%20Faces%20in%20Action.pdf" download>JavaServer Faces in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/JUnit%20in%20Action%20-%201st%20Edition.pdf" download>JSTL in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/JUnit%20in%20Action%20-%201st%20Edition.pdf" download>JUnit in Action - 1st Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/JUnit%20in%20Action%20-%202nd%20Edition.pdf" download>JUnit in Action - 2nd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/MongoDB%20in%20Action.pdf" download>MongoDB in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/SonarQube%20in%20Action.pdf" download>SonarQube in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Spring%20Boot%20in%20Action.pdf" download>Spring Boot in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Spring%20Dynamic%20Modules%20in%20Action.pdf" download>Spring Dynamic Modules in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Spring%20in%20Action%20-%202nd%20Edition.pdf" download>Spring in Action - 2nd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Spring%20in%20Action%20-%203rd%20Edition.pdf" download>Spring in Action - 3rd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Spring%20Integration%20in%20Action.pdf" download>Spring Integration in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Struts%201%20in%20Action.pdf" download>Struts 1 in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Struts%202%20in%20Action.pdf" download>Struts 2 in Action</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/In%20Action%20Series/Wicket%20in%20Action.pdf" download>Wicket in Action</a></li>
+			<li value='IA|ActiveMQ in Action' class="bookItem" />
+			<li value='IA|Android in Action, 3rd Edition' class="bookItem" />
+			<li value='IA|Ant in Action - 2nd Edition' class="bookItem" />
+			<li value='IA|EJB 3 in Action - 2nd Edition' class="bookItem" />
+			<li value='IA|Ext JS in Action - 2nd Edition' class="bookItem" />
+			<li value='IA|HTML5 in Action' class="bookItem" />
+			<li value='IA|Java 8 in Action' class="bookItem" />
+			<li value='IA|JavaServer Faces in Action' class="bookItem" />
+			<li value='IA|JSTL in Action' class="bookItem" />
+			<li value='IA|JUnit in Action - 1st Edition' class="bookItem" />
+			<li value='IA|JUnit in Action - 2nd Edition' class="bookItem" />
+			<li value='IA|MongoDB in Action' class="bookItem" />
+			<li value='IA|SonarQube in Action' class="bookItem" />
+			<li value='IA|Spring Boot in Action' class="bookItem" />
+			<li value='IA|Spring Dynamic Modules in Action' class="bookItem" />
+			<li value='IA|Spring in Action - 2nd Edition' class="bookItem" />
+			<li value='IA|Spring in Action - 3rd Edition' class="bookItem" />
+			<li value='IA|Spring Integration in Action' class="bookItem" />
+			<li value='IA|Struts 1 in Action' class="bookItem" />
+			<li value='IA|Struts 2 in Action' class="bookItem" />
+			<li value='IA|Wicket in Action' class="bookItem" />
 		</ul>
 	</details>
 
 	<details>
 		<summary>O'Reilly - Book Series</summary>
 		<ul>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/AngularJS%20-%20Up%20and%20Running.pdf" download>AngularJS - Up and Running</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%205%20Pocket%20Guide.pdf" download>Java 5 Pocket Guide</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%208%20Lambdas.pdf" download>Java 8 Lambdas</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%208%20Pocket%20Guide.pdf" download>Java 8 Pocket Guide</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%20Cookbook%2C%203rd%20Edition.pdf" download>Java Cookbook, 3rd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%20in%20a%20Nutshell%2C%206th%20Edition.pdf" download>Java in a Nutshell, 6th Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%20Message%20Service.pdf" download>Java Message Service</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%20Performance-%20The%20Definitive%20Guide.pdf" download>Java Performance- The Definitive Guide</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%20Server%20Pages.pdf" download>Java Server Pages</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Java%20Web%20Services.pdf" download>Java Web Services</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Just%20Hibernate.pdf" download>Just Hibernate</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Just%20Spring%20Data%20Access.pdf" download>Just Spring Data Access</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Just%20Spring%20Integration.pdf" download>Just Spring Integration</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Just%20Spring.pdf" download>Just Spring</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Learning%20Java%2C%204th%20Edition.pdf" download>Learning Java, 4th Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Programming%20JavaScript%20Applications.pdf" download>Programming JavaScript Applications</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Regular%20Expression%20Pocket%20Reference%2C%202nd%20Edition.pdf" download>Regular Expression Pocket Reference, 2nd Edition</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/RESTful%20Web%20Services.pdf" download>RESTful Web Services</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/Spring%20Data.pdf" download>Spring Data</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/O'Reilly%20Series/XML%20Pocket%20Reference%2C%203rd%20Edition.pdf" download>XML Pocket Reference, 3rd Edition</a></li>
+			<li value='OR|AngularJS - Up and Running' class="bookItem" />
+			<li value='OR|Java 5 Pocket Guide' class="bookItem" />
+			<li value='OR|Java 8 Lambdas' class="bookItem" />
+			<li value='OR|Java 8 Pocket Guide' class="bookItem" />
+			<li value='OR|Java Cookbook, 3rd Edition' class="bookItem" />
+			<li value='OR|Java in a Nutshell, 6th Edition' class="bookItem" />
+			<li value='OR|Java Message Service' class="bookItem" />
+			<li value='OR|Java Performance- The Definitive Guide' class="bookItem" />
+			<li value='OR|Java Server Pages' class="bookItem" />
+			<li value='OR|Java Web Services' class="bookItem" />
+			<li value='OR|Just Hibernate' class="bookItem" />
+			<li value='OR|Just Spring Data Access' class="bookItem" />
+			<li value='OR|Just Spring Integration' class="bookItem" />
+			<li value='OR|Just Spring' class="bookItem" class="bookItem" />
+			<li value='OR|Learning Java, 4th Edition' class="bookItem" />
+			<li value='OR|Programming JavaScript Applications' class="bookItem" />
+			<li value='OR|Regular Expression Pocket Reference, 2nd Edition' class="bookItem" />
+			<li value='OR|RESTful Web Services' class="bookItem" />
+			<li value='OR|Spring Data' class="bookItem" />
+			<li value='OR|XML Pocket Reference, 3rd Edition' class="bookItem" />
 		</ul>
 	</details>
 
 	<details>
 		<summary>Other Book Series</summary>
 		<ul>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/Others/Java%20Collections%20-%20Software%20Engineering.pdf" download>Java Collections - Software Engineering</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/Others/Java%20Collections%20Framework.pdf" download>Java Collections Framework</a></li>
-			<li><a href = "https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/raw/master/Books/Others/Wrox%20Java%20Programming%20Interviews%20Exposed%20Feb%202014.pdf" download>Wrox Java Programming Interviews Exposed Feb 2014</a></li>
+			<li value='OT|Java Collections - Software Engineering' class="bookItem" />
+			<li value='OT|Java Collections Framework' class="bookItem" />
+			<li value='OT|Wrox Java Programming Interviews Exposed Feb 2014' class="bookItem" />
 		</ul>
 	</details>
 
 	<hr />
-
-	<i> Report for any broken links. </i>
+	<footer>
+		<i> 
+			Report for any broken links <a href="https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/issues" target='blank'>here</a>  or just <a href="mailto:vignesh87.srkv@gmail.com">mail me</a> with the details. 
+		</i>
+	</footer>
 </body>
 </html>
