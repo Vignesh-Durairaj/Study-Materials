@@ -61,7 +61,10 @@
 			a.href = getURLs(listItem);
 			a.download = true;
 			a.textContent = listItem.getAttribute('value').split('|')[1];
+			
 			listItem.appendChild(a);
+			listItem.removeAttribute('value');
+			listItem.removeAttribute('class');
 		}
 
 		function getURLs(listItem) {
