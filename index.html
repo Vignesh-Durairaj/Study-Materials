@@ -61,10 +61,9 @@
 			a.href = getURLs(listItem);
 			a.download = true;
 			a.textContent = listItem.getAttribute('value').split('|')[1];
-			
+
 			listItem.appendChild(a);
 			listItem.removeAttribute('value');
-			listItem.removeAttribute('class');
 		}
 
 		function getURLs(listItem) {
@@ -188,7 +187,10 @@
 	</details>
 
 	<hr />
-
-	<i> Report for any broken links <a href="https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/issues" target='blank'>here</a>. </i>
+	<footer>
+		<i> 
+			Report for any broken links <a href="https://github.com/Vignesh-Durairaj/Vignesh-Durairaj.github.io/issues" target='blank'>here</a>  or just <a href="mailto:vignesh87.srkv@gmail.com">mail me</a> with the details. 
+		</i>
+	</footer>
 </body>
 </html>
