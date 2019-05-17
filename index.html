@@ -21,12 +21,14 @@
 			border-radius: 5px;
 		}
 
-		tr.selector {
+		td.selector {
 			border-color: black; 
-			border-style: solid;
+			border-radius: 10px; 
+			border-style: solid; 
+			border-width: thin;
+			width: 20%;
 
 		}
-
 	</style>
 
 	<script type="text/javascript">
@@ -94,31 +96,33 @@
 	</script>
 </head>
 <body>
-	<table width="100%" >
-		<thead>
-			<tr>
-				<td width="70%">
-					<h1 id='heading'>Here's a set of study materials used</h1>
-				</td>
-				<td width="10%"></td>
-				<td align="center">
-					<span style="font-family: Tahoma; font-size: medium; ">Change Back-Ground</span> 
-					<br />
-					<table width="100%" cellspacing="10px;">
-						<th>
-							<tr>
-								<td width="20%" style="background-color: #F7CD91; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "><br /></td>
-								<td width="20%" style="background-color: #D6FFF0; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
-								<td width="20%" style="background-color: #FFFFFF; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
-								<td width="20%" style="background-color: #B7F4A8; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
-								<td width="20%" style="background-color: #FDFF99; border-radius: 10px; border-style: solid; border-width: thin;" onclick="javascript: changeBgColor(this); "></td>
-							</tr>
-						</th>
-					</table>
-				</td>
-			</tr>
-		</thead>
-	</table>
+	<header>
+		<table width="100%" >
+			<thead>
+				<tr>
+					<td width="70%">
+						<h1 id='heading'>Here's a set of study materials used</h1>
+					</td>
+					<td width="10%"></td>
+					<td align="center">
+						<span style="font-family: Tahoma; font-size: medium; ">Change Back-Ground</span> 
+						<br />
+						<table width="100%" cellspacing="10px;">
+							<th>
+								<tr>
+									<td class='selector' style="background-color: #F7CD91;" onclick="javascript: changeBgColor(this); "><br /></td>
+									<td class='selector' style="background-color: #D6FFF0;" onclick="javascript: changeBgColor(this); "></td>
+									<td class='selector' style="background-color: #FFFFFF;" onclick="javascript: changeBgColor(this); "></td>
+									<td class='selector' style="background-color: #B7F4A8;" onclick="javascript: changeBgColor(this); "></td>
+									<td class='selector' style="background-color: #FDFF99;" onclick="javascript: changeBgColor(this); "></td>
+								</tr>
+							</th>
+						</table>
+					</td>
+				</tr>
+			</thead>
+		</table>
+	</header>
 	<hr class="fancy"/>
 	<b>
 		Expand individual sections for download links
