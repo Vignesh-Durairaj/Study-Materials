@@ -66,6 +66,7 @@
 
 			listItem.appendChild(a);
 			listItem.removeAttribute('value');
+			listItem
 		}
 
 		function getURLs(listItem) {
@@ -97,32 +98,34 @@
 </head>
 <body>
 	<header>
-		<table width="100%" >
-			<thead>
-				<tr>
-					<td width="10%">
-						<img src='books.svg' alt='Study Materials' />
-					</td>
-					<td width="70%">
-						<h1 id='heading'>It's time to Study and Re-Skill yourself</h1>
-					</td>
-					<td align="center">
-						<span style="font-family: Tahoma; font-size: medium; ">Change Back-Ground</span> 
-						<br />
-						<table width="100%" cellspacing="10px;">
-							<th>
-								<tr>
-									<td class='selector' style="background-color: #F7CD91;" onclick="javascript: changeBgColor(this); "><br /></td>
-									<td class='selector' style="background-color: #D6FFF0;" onclick="javascript: changeBgColor(this); "></td>
-									<td class='selector' style="background-color: #FFFFFF;" onclick="javascript: changeBgColor(this); "></td>
-									<td class='selector' style="background-color: #B7F4A8;" onclick="javascript: changeBgColor(this); "></td>
-									<td class='selector' style="background-color: #FDFF99;" onclick="javascript: changeBgColor(this); "></td>
-								</tr>
-							</th>
-						</table>
-					</td>
-				</tr>
-			</thead>
+		<table width="100%">
+			<tr>
+				<td rowspan="2" valign="middle" width="13.5%"><img src='books.svg' alt='Study Materials' /></td>
+				<td colspan="1"><h1 id='heading'>It's time to Study and Re-Skill yourself</h1></td>
+			</tr>
+			<tr>
+				<td align = "right">
+					<table width="100%">
+						<tr>
+							<td align="center">
+								<span style="font-family: Tahoma; font-size: medium; ">Change Back-Ground</span> 
+								<br />
+								<table width="50%" cellspacing="10px;">
+									<th>
+										<tr>
+											<td class='selector' style="background-color: #F7CD91;" onclick="javascript: changeBgColor(this); "><br /></td>
+											<td class='selector' style="background-color: #D6FFF0;" onclick="javascript: changeBgColor(this); "></td>
+											<td class='selector' style="background-color: #FFFFFF;" onclick="javascript: changeBgColor(this); "></td>
+											<td class='selector' style="background-color: #B7F4A8;" onclick="javascript: changeBgColor(this); "></td>
+											<td class='selector' style="background-color: #FDFF99;" onclick="javascript: changeBgColor(this); "></td>
+										</tr>
+									</th>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
 		</table>
 	</header>
 	<hr class="fancy"/>
