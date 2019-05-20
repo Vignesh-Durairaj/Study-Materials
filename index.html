@@ -37,6 +37,7 @@
 
 		window.onload = function() {
 			loadHyperLinks();
+			cleanUp();
 		}
 
 		setInterval(function () {
@@ -92,6 +93,14 @@
 					.replace(/,/g,'%2C');
 		}
 
+		function cleanUp() {
+			let listItems = document.getElementsByClassName('bookItem');
+			for (listItem of listItems) {
+				listItem.setAttribute('value', '');
+				listItem.setAttribute('class', '');
+				listItem.parentElement.appendChild(listItem);
+			}
+		}
 	</script>
 </head>
 <body>
