@@ -12,3 +12,7 @@
 My custom page published via [GitHub](https://github.io). As a starting step, I'd listed the set of study materials I used and purchased to hone my software development skills.
 
 Access the page via this [link](https://vignesh-durairaj.github.io/)
+
+## Features added
+
+1. Dynamically generated download links using `Basic JS`
