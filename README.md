@@ -16,3 +16,4 @@ Access the page via this [link](https://vignesh-durairaj.github.io/)
 ## Features added
 
 1. Dynamically generated download links using `Basic JS`
+2. Simple back-ground colour changer with some `Sample mild colours`
