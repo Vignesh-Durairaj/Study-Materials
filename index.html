@@ -37,6 +37,7 @@
 
 		window.onload = function() {
 			loadHyperLinks();
+			cleanUp();
 		}
 
 		setInterval(function () {
@@ -65,8 +66,6 @@
 			a.textContent = listItem.getAttribute('value').split('|')[1];
 
 			listItem.appendChild(a);
-			listItem.removeAttribute('value');
-			listItem
 		}
 
 		function getURLs(listItem) {
@@ -94,6 +93,14 @@
 					.replace(/,/g,'%2C');
 		}
 
+		function cleanUp() {
+			let listItems = document.getElementsByClassName('bookItem');
+			for (listItem of listItems) {
+				listItem.setAttribute('value', '');
+				listItem.setAttribute('class', '');
+				listItem.parentElement.appendChild(listItem);
+			}
+		}
 	</script>
 </head>
 <body>
