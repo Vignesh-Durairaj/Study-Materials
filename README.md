@@ -20,3 +20,4 @@ Access the page via this [link](https://vignesh-durairaj.github.io/)
 
 ## Materials Included
 * In Action Series
+* O'Reilly Series
